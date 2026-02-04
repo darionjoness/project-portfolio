@@ -1,259 +1,231 @@
-# 🎓 AZ-104 Portfolio Project: Contoso Small Business Cloud Infrastructure
+# 🎓 Azure Certification Portfolio Projects
 
 [![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)](https://azure.microsoft.com)
-[![AZ-104](https://img.shields.io/badge/AZ--104-Certified-success?style=for-the-badge)](https://learn.microsoft.com/en-us/certifications/azure-administrator/)
+[![AZ-104](https://img.shields.io/badge/AZ--104-Administrator-0078D4?style=for-the-badge)](https://learn.microsoft.com/certifications/azure-administrator/)
+[![AZ-305](https://img.shields.io/badge/AZ--305-Architect-0078D4?style=for-the-badge)](https://learn.microsoft.com/certifications/azure-solutions-architect/)
+[![AI-102](https://img.shields.io/badge/AI--102-AI%20Engineer-0078D4?style=for-the-badge)](https://learn.microsoft.com/certifications/azure-ai-engineer/)
 
-> **Congratulations on passing AZ-104!** 🎉 This project will help you solidify your knowledge through hands-on practice by building a real-world cloud infrastructure from the ground up.
-
-## 📋 Project Overview
-
-You've been hired as the **Azure Administrator** for **Contoso Consulting**, a small business with 25 employees that is migrating from on-premises infrastructure to Azure. Your mission is to build out their entire cloud infrastructure following Azure best practices.
-
-This project is designed in **building blocks** - start simple and progressively tackle more complex scenarios. Each module builds upon the previous one, simulating how real-world cloud projects evolve.
-
-### 🎯 What You'll Build
-
-By the end of this project, you will have deployed:
-- A complete identity and governance framework
-- Secure storage solutions for company files and backups
-- Virtual machines for legacy application support
-- A modern web application with high availability
-- Enterprise-grade networking with security controls
-- Comprehensive monitoring and alerting
+> **Hands-on portfolio projects to solidify your Azure certification knowledge through real-world scenarios.**
 
 ---
 
-## 📊 Project Architecture
+## 📋 Overview
+
+This repository contains **three comprehensive portfolio projects**, each designed to reinforce skills from a specific Azure certification. Projects follow a **building blocks approach** - start simple and progressively tackle more complex scenarios.
+
+| Project | Certification | Scenario | Modules | Est. Time |
+|---------|--------------|----------|---------|-----------|
+| [AZ-104 Administrator](./az104-azure-administrator/) | Azure Administrator | Contoso Consulting | 8 modules | 30-40 hrs |
+| [AZ-305 Architect](./az305-solutions-architect/) | Solutions Architect | Northwind Traders | 6 modules | 25-35 hrs |
+| [AI-102 AI Engineer](./ai102-ai-engineer/) | Azure AI Engineer | IntelliHealth | 9 modules | 40-50 hrs |
+
+---
+
+## 🗂️ Repository Structure
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                    Contoso Azure Environment                      │
-├─────────────────────────────────────────────────────────────────┤
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │
-│  │   Identity   │  │  Governance  │  │  Monitoring  │          │
-│  │  (Entra ID)  │  │   (Policy)   │  │  (Monitor)   │          │
-│  └──────────────┘  └──────────────┘  └──────────────┘          │
-├─────────────────────────────────────────────────────────────────┤
-│  Production Resource Group          Dev Resource Group           │
-│  ┌─────────────────────────────┐   ┌─────────────────────────┐ │
-│  │  ┌─────────┐  ┌─────────┐   │   │  ┌─────────┐            │ │
-│  │  │   VM    │  │   VM    │   │   │  │ Web App │            │ │
-│  │  │ (Web)   │  │ (DB)    │   │   │  │  (Dev)  │            │ │
-│  │  └─────────┘  └─────────┘   │   │  └─────────┘            │ │
-│  │       │            │        │   └─────────────────────────┘ │
-│  │  ┌─────────────────────┐    │                               │
-│  │  │   Load Balancer     │    │                               │
-│  │  └─────────────────────┘    │                               │
-│  │  ┌─────────────────────┐    │                               │
-│  │  │   Storage Account   │    │                               │
-│  │  │  (Files, Blobs)     │    │                               │
-│  │  └─────────────────────┘    │                               │
-│  └─────────────────────────────┘                               │
-│  Virtual Network (10.0.0.0/16)                                  │
-│  ├── Web Subnet (10.0.1.0/24)                                   │
-│  ├── Data Subnet (10.0.2.0/24)                                  │
-│  └── Mgmt Subnet (10.0.3.0/24)                                  │
-└─────────────────────────────────────────────────────────────────┘
-```
-
----
-
-## 🗺️ Learning Path
-
-| Module | Topic | Difficulty | Est. Time | Status |
-|--------|-------|------------|-----------|--------|
-| [01](./modules/01-identity-governance/) | Identity & Governance | ⭐ Beginner | 2-3 hours | ⬜ |
-| [02](./modules/02-storage/) | Storage Solutions | ⭐ Beginner | 2-3 hours | ⬜ |
-| [03](./modules/03-virtual-machines/) | Virtual Machines | ⭐⭐ Intermediate | 3-4 hours | ⬜ |
-| [04](./modules/04-networking/) | Networking Fundamentals | ⭐⭐ Intermediate | 3-4 hours | ⬜ |
-| [05](./modules/05-app-services/) | App Services | ⭐⭐ Intermediate | 2-3 hours | ⬜ |
-| [06](./modules/06-monitoring/) | Monitoring & Maintenance | ⭐⭐ Intermediate | 2-3 hours | ⬜ |
-| [07](./modules/07-advanced-networking/) | Advanced Networking | ⭐⭐⭐ Advanced | 4-5 hours | ⬜ |
-| [08](./modules/08-capstone/) | Capstone Project | ⭐⭐⭐ Advanced | 6-8 hours | ⬜ |
-
-**Total Estimated Time: 24-33 hours** (at your own pace - no rush!)
-
----
-
-## ⏱️ Time Guidance
-
-These time estimates are based on someone who has passed AZ-104 but is new to hands-on implementation:
-
-| If you're spending... | What it means |
-|----------------------|---------------|
-| **Less than estimated** | Great! You're comfortable with these concepts |
-| **Around estimated time** | Perfect - you're on track |
-| **1.5x estimated time** | Normal - take time to understand deeply |
-| **2x+ estimated time** | Consider reviewing the reference docs or asking for help |
-
-> **💡 Pro Tip:** It's better to spend extra time understanding *why* something works than to rush through and just copy commands. This is learning, not a race!
-
----
-
-## 💰 Cost Management
-
-This project is designed to **minimize costs** using free-tier resources and short-lived deployments.
-
-### Free Tier Resources Used
-- **Azure Free Account**: 12 months of free services + $200 credit (30 days)
-- **Always Free**: 750 hours B1S VMs, 5GB blob storage, etc.
-- **Student Account**: If available, $100 credit via [Azure for Students](https://azure.microsoft.com/en-us/free/students/)
-
-### Estimated Costs Per Module
-| Module | Estimated Cost | Notes |
-|--------|---------------|-------|
-| 01 - Identity | **FREE** | Entra ID Free tier |
-| 02 - Storage | **~$0.02** | Small blob/file storage |
-| 03 - VMs | **~$5-10** | B1S VMs (can use free hours) |
-| 04 - Networking | **FREE** | VNets, NSGs are free |
-| 05 - App Services | **FREE** | F1 Free tier |
-| 06 - Monitoring | **FREE** | Basic monitoring included |
-| 07 - Advanced | **~$2-5** | VPN Gateway charges |
-| 08 - Capstone | **~$5-10** | Combined resources |
-
-### ⚠️ IMPORTANT: Cleanup Reminders
-
-Each module includes a **🧹 Cleanup** section. **Always complete the cleanup steps** to avoid unexpected charges!
-
-```bash
-# Quick cleanup command (delete entire resource group)
-az group delete --name <resource-group-name> --yes --no-wait
-```
-
-**Set a calendar reminder** after each session to verify resources are deleted!
-
----
-
-## 📋 Prerequisites
-
-Before starting, ensure you have:
-
-### Required
-- [ ] **Azure Subscription** - [Create Free Account](https://azure.microsoft.com/en-us/free/)
-- [ ] **Azure CLI** installed - [Install Guide](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
-- [ ] **VS Code** with Azure extensions - [Download](https://code.visualstudio.com/)
-- [ ] **Git** installed - [Download](https://git-scm.com/downloads)
-
-### Recommended
-- [ ] **Azure PowerShell** module - `Install-Module -Name Az -Scope CurrentUser`
-- [ ] **Bicep** extension for VS Code
-- [ ] **Azure Storage Explorer** - [Download](https://azure.microsoft.com/en-us/features/storage-explorer/)
-
-### Verify Your Setup
-```bash
-# Check Azure CLI
-az --version
-
-# Login to Azure
-az login
-
-# Verify subscription
-az account show --output table
+project-portfolio/
+├── README.md                          ← You are here
+│
+├── az104-azure-administrator/         ← AZ-104 Project
+│   ├── README.md
+│   ├── COST_GUIDE.md
+│   ├── TROUBLESHOOTING.md
+│   └── modules/
+│       ├── 01-identity-governance/
+│       ├── 02-storage/
+│       ├── 03-virtual-machines/
+│       ├── 04-networking/
+│       ├── 05-app-services/
+│       ├── 06-monitoring/
+│       ├── 07-advanced-networking/
+│       └── 08-capstone/
+│
+├── az305-solutions-architect/         ← AZ-305 Project
+│   ├── README.md
+│   ├── COST_GUIDE.md
+│   ├── TROUBLESHOOTING.md
+│   └── modules/
+│       ├── 01-governance-identity/
+│       ├── 02-data-storage/
+│       ├── 03-business-continuity/
+│       ├── 04-infrastructure/
+│       ├── 05-application-architecture/
+│       └── 06-capstone/
+│
+└── ai102-ai-engineer/                 ← AI-102 Project
+    ├── README.md
+    ├── COST_GUIDE.md
+    ├── TROUBLESHOOTING.md
+    └── modules/
+        ├── 01-azure-ai-fundamentals/
+        ├── 02-computer-vision/
+        ├── 03-natural-language/
+        ├── 04-knowledge-mining/
+        ├── 05-document-intelligence/
+        ├── 06-azure-openai/
+        ├── 07-conversational-ai/
+        ├── 08-responsible-ai/
+        └── 09-capstone/
 ```
 
 ---
 
-## 📁 Repository Structure
+## 🎯 Learning Approach
 
-```
-az104-portfolio-project/
-├── README.md                    # This file
-├── COST_GUIDE.md               # Detailed cost management
-├── TROUBLESHOOTING.md          # Common issues and solutions
-├── modules/
-│   ├── 01-identity-governance/
-│   │   ├── README.md           # Module instructions
-│   │   ├── exercises/          # Hands-on tasks
-│   │   ├── solutions/          # Reference solutions
-│   │   └── scripts/            # Automation scripts
-│   ├── 02-storage/
-│   ├── 03-virtual-machines/
-│   ├── 04-networking/
-│   ├── 05-app-services/
-│   ├── 06-monitoring/
-│   ├── 07-advanced-networking/
-│   └── 08-capstone/
-├── templates/                   # Reusable ARM/Bicep templates
-├── scripts/                     # Utility scripts
-└── assets/                      # Images and diagrams
-```
+### Building Blocks Philosophy
+
+Each project follows the same progressive learning pattern:
+
+1. **Start Simple** → Deploy basic resources, learn core concepts
+2. **Add Complexity** → Integrate services, implement security
+3. **Real-World Scenarios** → Build production-like solutions
+4. **Capstone** → Combine everything in a comprehensive project
+
+### What's Included in Each Module
+
+- 📖 **Detailed Instructions** - Step-by-step guidance
+- 🎯 **Learning Objectives** - Clear goals aligned with exam domains
+- 💻 **Hands-On Exercises** - Portal + CLI/PowerShell approaches
+- 🧹 **Cleanup Steps** - Avoid unexpected charges
+- ✅ **Validation Checks** - Verify your work
+- 📚 **Additional Resources** - Links to MS Learn content
+
+---
+
+## 💰 Cost Estimates
+
+All projects are designed to minimize costs using free-tier resources.
+
+| Project | Estimated Total Cost | Notes |
+|---------|---------------------|-------|
+| AZ-104 | **$15-25** | Uses VM free hours, F1 apps |
+| AZ-305 | **$5-15** | Design-focused, minimal deployments |
+| AI-102 | **$20-40** | AI services have free tiers |
+
+> ⚠️ **Always complete cleanup steps** after each session to avoid charges!
 
 ---
 
 ## 🚀 Getting Started
 
-### Step 1: Fork This Repository
-Click the **Fork** button at the top right to create your own copy.
+### Prerequisites
 
-### Step 2: Clone Your Fork
+- [ ] **Azure Subscription** - [Create Free Account](https://azure.microsoft.com/free/)
+- [ ] **Azure CLI** - [Install Guide](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [ ] **VS Code** with Azure extensions
+- [ ] **Git** installed
+
+### Choose Your Path
+
+| If you have... | Start with... |
+|----------------|---------------|
+| AZ-104 certification | [AZ-104 Project](./az104-azure-administrator/) |
+| AZ-305 certification | [AZ-305 Project](./az305-solutions-architect/) |
+| AI-102 certification | [AI-102 Project](./ai102-ai-engineer/) |
+| Multiple certifications | Any order - projects are independent |
+
+### Quick Start
+
 ```bash
-git clone https://github.com/YOUR_USERNAME/az104-portfolio-project.git
-cd az104-portfolio-project
+# Clone this repository
+git clone https://github.com/KyleMonteagudo/project-portfolio.git
+cd project-portfolio
+
+# Navigate to your chosen project
+cd az104-azure-administrator  # or az305-solutions-architect or ai102-ai-engineer
+
+# Start with Module 01
+# Follow the README.md in each module folder
 ```
 
-### Step 3: Start Module 01
-Navigate to [Module 01 - Identity & Governance](./modules/01-identity-governance/) and begin!
+---
 
-### Step 4: Track Your Progress
-After completing each module, update this README by changing ⬜ to ✅ in the Learning Path table.
+## 📊 Project Details
+
+### AZ-104: Azure Administrator
+**Scenario**: You're the Azure Administrator for **Contoso Consulting** (25 employees), migrating from on-premises to Azure.
+
+| Module | Topic | Skills |
+|--------|-------|--------|
+| 01 | Identity & Governance | Entra ID, RBAC, Policy |
+| 02 | Storage | Blobs, Files, Replication |
+| 03 | Virtual Machines | VMs, Availability, Backup |
+| 04 | Networking | VNets, NSGs, Load Balancers |
+| 05 | App Services | Web Apps, Deployment Slots |
+| 06 | Monitoring | Monitor, Alerts, Diagnostics |
+| 07 | Advanced Networking | VPN, Peering, Private Endpoints |
+| 08 | Capstone | Full Infrastructure Project |
+
+### AZ-305: Solutions Architect
+**Scenario**: You're the Solutions Architect for **Northwind Traders**, designing their Azure migration strategy.
+
+| Module | Topic | Skills |
+|--------|-------|--------|
+| 01 | Governance & Identity | Multi-tenant, B2B/B2C, PIM |
+| 02 | Data Storage | Partitioning, Caching, Residency |
+| 03 | Business Continuity | DR, Backup, HA Patterns |
+| 04 | Infrastructure | Compute Selection, Migrations |
+| 05 | Application Architecture | Microservices, Messaging |
+| 06 | Capstone | Complete Architecture Design |
+
+### AI-102: Azure AI Engineer
+**Scenario**: You're the AI Engineer for **IntelliHealth**, building an intelligent healthcare platform.
+
+| Module | Topic | Skills |
+|--------|-------|--------|
+| 01 | Azure AI Fundamentals | Services, SDKs, Security |
+| 02 | Computer Vision | Image Analysis, OCR, Custom Vision |
+| 03 | Natural Language | Text Analytics, Translator |
+| 04 | Knowledge Mining | Cognitive Search, Indexing |
+| 05 | Document Intelligence | Form Recognizer, Extraction |
+| 06 | Azure OpenAI | GPT, Embeddings, Prompt Engineering |
+| 07 | Conversational AI | Bot Framework, LUIS |
+| 08 | Responsible AI | Ethics, Transparency, Fairness |
+| 09 | Capstone | Full AI Healthcare Platform |
 
 ---
 
-## 📚 Additional Resources
+## 🏆 Portfolio Benefits
 
-### Microsoft Learn Paths
-- [AZ-104 Learning Path](https://docs.microsoft.com/en-us/learn/certifications/azure-administrator/)
-- [Azure Administrator Documentation](https://docs.microsoft.com/en-us/azure/azure-resource-manager/)
+Upon completing these projects, you'll have:
 
-### Practice Tools
-- [Azure Portal](https://portal.azure.com)
-- [Azure CLI Reference](https://docs.microsoft.com/en-us/cli/azure/)
-- [Azure PowerShell Reference](https://docs.microsoft.com/en-us/powershell/azure/)
-
-### Community
-- [Microsoft Q&A](https://docs.microsoft.com/en-us/answers/topics/azure-virtual-machines.html)
-- [Azure Subreddit](https://www.reddit.com/r/azure/)
-
----
-
-## 🤝 Getting Help
-
-**Stuck on a step?** Here's what to do:
-
-1. **Check the Troubleshooting Guide** - [TROUBLESHOOTING.md](./TROUBLESHOOTING.md)
-2. **Review the Reference Docs** - Each module links to relevant MS Learn content
-3. **Check the Solutions Folder** - Each module has reference solutions
-4. **Ask for Help** - Reach out to your mentor with:
-   - What you're trying to do
-   - What you've tried
-   - The error message (if any)
+- ✅ **Hands-on experience** with real Azure services
+- ✅ **GitHub portfolio** demonstrating your skills
+- ✅ **Documentation skills** from architecture decisions
+- ✅ **Troubleshooting experience** from debugging issues
+- ✅ **Cost management awareness** from budget exercises
+- ✅ **Interview talking points** for each certification domain
 
 ---
 
 ## 📝 Progress Tracking
 
-As you complete each module, commit your work with meaningful messages:
+Track your progress by updating checkboxes in each project's README, and commit your changes:
 
 ```bash
 git add .
-git commit -m "Complete Module 01: Identity & Governance"
+git commit -m "Complete AZ-104 Module 03: Virtual Machines"
 git push origin main
 ```
 
-This builds your GitHub activity and creates a portfolio of your work!
+---
+
+## 🤝 Contributing
+
+Found an issue or have a suggestion? Feel free to:
+- Open an issue
+- Submit a pull request
+- Reach out with feedback
 
 ---
 
-## 🏆 Completion Certificate
+## 📚 Additional Resources
 
-Once you've completed all modules including the capstone project, you'll have:
-- A comprehensive understanding of Azure administration
-- Real-world experience with common cloud scenarios
-- A portfolio project to showcase to employers
-- Hands-on skills that complement your AZ-104 certification
-
-**Good luck, and enjoy your Azure journey!** 🚀
+- [Microsoft Learn](https://learn.microsoft.com)
+- [Azure Documentation](https://docs.microsoft.com/azure/)
+- [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)
 
 ---
 
-*Created with ❤️ to help Azure professionals grow*
+*Created with ❤️ to help Azure professionals grow their skills through hands-on practice*
