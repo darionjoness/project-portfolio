@@ -1,0 +1,69 @@
+# Azure credentials and secrets
+*.pfx
+*.cer
+*.key
+*.pem
+azureauth.json
+.azure/
+
+# Local environment files
+.env
+.env.local
+*.local
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+
+# ARM template outputs
+*.parameters.local.json
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Node modules (if any web projects)
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Test outputs
+test-results/
+coverage/
+
+# Build outputs
+dist/
+build/
+out/
+
+# Deployment packages
+*.zip
+deploy/
+
+# Personal notes
+NOTES.md
+TODO.md
+scratch/

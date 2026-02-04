@@ -1,0 +1,94 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+*.egg-info/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Azure
+.azure/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Audio files (can be large)
+*.wav
+*.mp3
+*.m4a
+
+# Image files (use sparingly)
+# *.jpg
+# *.png
+# Keep sample images if needed
+
+# Model files (can be large)
+*.onnx
+*.pt
+*.pth
+*.h5
+
+# Secrets (never commit!)
+*.pem
+*.key
+*.pfx
+*.p12
+secrets/
+credentials/
+config.local.py
+
+# Large files
+*.zip
+*.tar.gz
+*.rar
+
+# Test outputs
+test-output/
+coverage/
+
+# Documentation builds
+site/
+docs/_build/
