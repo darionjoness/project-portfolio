@@ -1,0 +1,58 @@
+{
+  "rules": [
+    {
+      "enabled": true,
+      "name": "move-to-cool",
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": ["blockBlob"],
+          "prefixMatch": ["uploads/"]
+        },
+        "actions": {
+          "baseBlob": {
+            "tierToCool": {
+              "daysAfterModificationGreaterThan": 30
+            }
+          }
+        }
+      }
+    },
+    {
+      "enabled": true,
+      "name": "move-to-archive",
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": ["blockBlob"],
+          "prefixMatch": ["uploads/"]
+        },
+        "actions": {
+          "baseBlob": {
+            "tierToArchive": {
+              "daysAfterModificationGreaterThan": 90
+            }
+          }
+        }
+      }
+    },
+    {
+      "enabled": true,
+      "name": "delete-old-files",
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": ["blockBlob"],
+          "prefixMatch": ["uploads/"]
+        },
+        "actions": {
+          "baseBlob": {
+            "delete": {
+              "daysAfterModificationGreaterThan": 365
+            }
+          }
+        }
+      }
+    }
+  ]
+}
