@@ -65,7 +65,7 @@ By the end of this project, you will have deployed:
 | [01](./modules/01-identity-governance/) | Identity & Governance | ⭐ Beginner | 2-3 hours | ✅ |
 | [02](./modules/02-storage/) | Storage Solutions | ⭐ Beginner | 2-3 hours | ✅ |
 | [03](./modules/03-virtual-machines/) | Virtual Machines | ⭐⭐ Intermediate | 3-4 hours | ✅ |
-| [04](./modules/04-networking/) | Networking Fundamentals | ⭐⭐ Intermediate | 3-4 hours | ⬜ |
+| [04](./modules/04-networking/) | Networking Fundamentals | ⭐⭐ Intermediate | 3-4 hours | ✅ |
 | [05](./modules/05-app-services/) | App Services | ⭐⭐ Intermediate | 2-3 hours | ⬜ |
 | [06](./modules/06-monitoring/) | Monitoring & Maintenance | ⭐⭐ Intermediate | 2-3 hours | ⬜ |
 | [07](./modules/07-advanced-networking/) | Advanced Networking | ⭐⭐⭐ Advanced | 4-5 hours | ⬜ |
