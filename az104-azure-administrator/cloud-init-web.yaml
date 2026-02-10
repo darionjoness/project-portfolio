@@ -1,9 +1,0 @@
-#cloud-config
-package_upgrade: true
-packages:
-  - nginx
-  - git
-runcmd:
-  - systemctl start nginx
-  - systemctl enable nginx
-  - echo "<h1>Welcome to Contoso Web Server</h1><p>Deployed with cloud-init!</p>" > /var/www/html/index.html
